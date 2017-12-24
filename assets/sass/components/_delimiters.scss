@@ -1,0 +1,199 @@
+.delimiter {
+    display: block;
+    margin-top: 20px;
+}
+.delimiter.delimiter--fixed-width {
+    width: 130px !important;
+    margin: auto;
+}
+// Delimiter: STYLE 1
+.delimiter--style-1 {
+	border-bottom: 1px solid $border-color-base;
+	margin: 30px 0;
+	position: relative;
+}
+.delimiter--style-1-v2 {
+	border: 1px dotted $border-color-base;
+}
+.delimiter--style-1 .delimiter-title {
+	width: 200px;
+	position: relative;
+	top: 25px;
+	background: #fff;
+	border: 2px solid $border-color-base;
+	color: $color-gray-light;
+	margin: auto;
+	height: 50px;
+	text-align: center;
+	z-index: 3;
+	cursor: default;
+}
+
+.delimiter--style-1 .delimiter-title h3 {
+	margin: 0;
+	padding: 0;
+	line-height: 50px;
+	font-size: $font-size-h6;
+	font-weight: 600;
+}
+
+.delimiter--style-1 .divider-title-wrapper::before{
+	content: "";
+	width: 280px;
+	height: 50px;
+	position: absolute;
+	margin-left: -140px;
+	left: 50%;
+	top: 50%;
+	background: #fff;
+	z-index: 2;
+}
+
+// Delimiter: STYLE 2
+.delimiter--style-2 {
+    border-bottom: 2px solid darken($border-color-base, 80%);
+    position: relative;
+}
+.delimiter--style-2:before {
+    content: "";
+    width: 160%;
+    position: absolute;
+    left: -30%;
+    top: -4px;
+    border-top: 2px solid $border-color-base;
+}
+.delimiter--style-2 .delimiter-icon {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    left: 50%;
+    top: -18px;
+    margin-left: -18px;
+    background: $color-white;
+    font-size: 20px;
+}
+
+//
+.delimiter-left-thick--style-1 {
+    border-left: 4px solid $color-base-1;
+}
+
+// Short delimiters
+.sd-1 {
+    padding: 14px 0;
+    display: block;
+    position: relative;
+}
+.sd-1:before {
+    content: "";
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 1px;
+    background: $color-base-1;
+}
+
+.sd-light:before {
+    background: $color-gray-light;
+}
+.sd-dark:before {
+    background: $color-gray-dark;
+}
+.sd-base-1:before {
+    background: $color-base-1;
+}
+
+.sd-thick-3px:before {
+    height: 3px!important;
+}
+
+.sd-sm:before {
+    width: 40px;
+}
+.sd-md:before {
+    width: 60px;
+}
+.sd-lg:before {
+    width: 90px;
+}
+
+.sd-center.sd-sm:before {
+    left: 50%;
+    margin-left: -20px;
+}
+.sd-center.sd-md:before {
+    left: 50%;
+    margin-left: -30px;
+}
+.sd-center.sd-lg:before {
+    left: 50%;
+    margin-left: -45px;
+}
+
+// Vertical delimiters
+.vd--1 {
+    height: 100px;
+    position: relative;
+}
+.vd--1:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: $color-base-1;
+}
+
+// Versus delimtier
+.vs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.vs--1 {
+    width: 68px;
+    height: 68px;
+    line-height: 68px;
+}
+
+// Or delimiter
+.or {
+    display: block;
+    margin: 2rem 0;
+}
+.or--1 {
+    position: relative;
+}
+.or--1:before,
+.or--1:after {
+    content: '';
+    position: absolute;
+    width: calc(50% - 30px);
+    height: 30px;
+    border-bottom: 1px dashed $border-color-base;
+}
+.or--1:before {
+    left: 0;
+}
+.or--1:after {
+    right: 0;
+}
+
+.or--1 > span {
+    display: inline-block;
+    height: 30px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-size: $font-size-sm;
+    color: darken($border-color-base, 10%);
+}
