@@ -1,0 +1,31 @@
+.card-MLA-visa,.card-MLA-master,.card-MLA-amex,.card-MLA-naranja,.card-MLA-tarshop,.card-MLA-cencosud,.card-MLA-cabal,.card-MLA-argencard,.card-MLA-pagofacil,.card-MLA-rapipago,.card-MLA-bapropagos,.card-MLA-redlink,.card-MLA-banelco, .card-MLA-nativa {background: url("http://static.mercadoshops.com/static/images/paymethods/mla-paymtehods.png") no-repeat; width: 30px;}
+.card-MLA-visa{background-position: 0 -2px}
+.card-MLA-master{background-position: 0px -27px}
+.card-MLA-amex{background-position: 0px -56px}
+.card-MLA-naranja{background-position: 0 -83px}
+.card-MLA-tarshop{background-position: 0 -108px}
+.card-MLA-cencosud{background-position: 0 -135px}
+.card-MLA-cabal{background-position: 0 -163px}
+.card-MLA-argencard{background-position: 0px -190px}
+.card-MLA-pagofacil{background-position: 0px -217px}
+.card-MLA-rapipago{background-position: 0px -244px;width:50px;}
+.card-MLA-bapropagos{background-position: 1px -325px;width: 59px;}
+.card-MLA-redlink{background-position: 0 -271px}
+.card-MLA-banelco{background-position: 0 -297px;width:32;}
+.card-MLA-nativa {background-position: 0px -435px; width: 50px}
+
+
+#payMethod .card-MLA-visa{background-position:6px -2px}
+#payMethod .card-MLA-master{background-position: 0px -27px}
+#payMethod .card-MLA-amex{background-position: 14px -56px}
+#payMethod .card-MLA-naranja{background-position: 10px -83px}
+#payMethod .card-MLA-tarshop{background-position: 0 -108px}
+#payMethod .card-MLA-cencosud{background-position: 0 -135px}
+#payMethod .card-MLA-cabal{background-position: 0 -163px}
+#payMethod .card-MLA-argencard{background-position: 2px -190px}
+#payMethod .card-MLA-pagofacil{background-position: 13px -217px}
+#payMethod .card-MLA-rapipago{background-position: 0px -244px;width:50px;}
+#payMethod .card-MLA-bapropagos{background-position: 1px -325px;width: 59px;}
+#payMethod .card-MLA-redlink{background-position: 0 -271px}
+#payMethod .card-MLA-banelco{background-position: 0 -297px;width:32;}
+#payMethod .card-MLA-nativa {background-position: 0px -435px; width: 50px}
