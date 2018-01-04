@@ -305,7 +305,7 @@
 
                             <div class="row row-no-padding ">
 
-                                <div class="col-lg-7 order-1 order-lg-1 mt-3">
+                                <div class="col-lg-7 order-1 order-lg-1 mt-4">
                                     <h3 class="heading heading-3 strong-400 mb-2 mb-lg-4 c-white">Tus datos</h3>
                                 </div>
 
@@ -338,7 +338,7 @@
                                                                 <div class="col-md-6">
                                                                     <div class="checkbox">
                                                                         <input type="checkbox" name="checkboxSuscribirse" id="checkboxSuscribirse" checked="checked">
-                                                                        <label for="checkboxSuscribirse" class="mb-0">Quiero recibir las novedades</label>
+                                                                        <label for="checkboxSuscribirse" style="margin-bottom:0px;">Quiero recibir las novedades</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -346,31 +346,19 @@
                                                     </div>
 
                                                 </div>
-
-                                                <div class="icon-block icon-block--style-1-v2">
-                                                  <div class="block-icon block-icon-sm pt-2">
-                                                      <i class="icon-communication-025"></i>
-                                                  </div>
-                                                  <div class="block-content">
-
-                                                        <h3 class=" mb-0 heading heading-6 strong-500">Vas a recibir los pasos para continuar por mail. <strong>Si no aparece chequeá la carpeta de Spam o comunicate con nosotros!</strong></h3>
-
-
-                                                  </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div> <!-- FORM DATOS - CIERRE -->
 
-                                <div class="col-lg-4 ml-lg-auto order-3 order-lg-2 mt-3" >
+                                <div class="col-lg-4 ml-lg-auto order-3 order-lg-2 mt-4" >
                                     <h3 class="heading heading-3 strong-400 mb-2 mb-lg-4 c-white">Resumen</h3>
                                 </div>
                                 <div class="col-lg-4 ml-lg-auto mt-2 order-4">
 
                                     <div class="card h-100">
 
-                                        <div class="card-body pb-0 ">
+                                        <div class="card-body pb-0">
                                             <table class="table-cart table-cart-review">
                                                 <thead>
                                                     <tr>
@@ -391,21 +379,15 @@
                                                 </tbody>
 
                                                 <tfoot>
-                                                  <tr class="cart-shipping pt-1" style="border-bottom:0">
-                                                      <th class="pb-0 pt-1">
-                                                          <span id="metodo-envio" class="text-italic">Retiro por Caballito</span>
-                                                      </th>
-                                                      <td class="text-right pt-1 pb-0" >
-
-                                                              <span id="costo-envio" class="product-total text-right">$0,00</span>
-                                                      </td>
-                                                  </tr>
-                                                  <tr class="cart-shipping pt-0 pb-1">
-                                                      <th class="pt-1 pb-4" colspan="2"><a href="#" class="link link-xs link--style-2 strong-600 "  data-toggle="modal" data-target="#exampleModal">
-                                                           Modificar envío
-                                                      </a> </th>
-
-                                                  </tr>
+                                                    <tr class="cart-shipping" >
+                                                        <th><a href="#" class="link link-xs link--style-2 strong-600 "  data-toggle="modal" data-target="#exampleModal">
+                                                             Modificar envío
+                                                        </a> </th>
+                                                        <td class="text-right">
+                                                            <span id="metodo-envio" class="text-italic">Retiro por Caballito</span>
+                                                                <span id="costo-envio" class="product-total text-right">$0,00</span>
+                                                        </td>
+                                                    </tr>
 
                                                     <tr class="cart-total">
                                                         <th><span class="strong-600">Total</span></th>
@@ -415,12 +397,9 @@
                                                     </tr>
                                                     <tr class="cart-shipping" style="border-bottom:0px;" >
                                                       <th colspan="2">
-                                                        <div class="row justify-content-end w-100 mr-0 ml-0">
-
-                                                          <div class="checkbox col-auto mt-2 pr-0 ">
-                                                              <input  type="checkbox" name="checkboxEfectivo" id="checkboxEfectivo" onchange="validarEnvioYEfectivo(899.00);">
-                                                              <label for="checkboxEfectivo" class="mb-0">Pagar en efectivo al retirar</label>
-                                                          </div>
+                                                        <div class="checkbox col-12 mt-0 pr-0 text-right">
+                                                            <input  type="checkbox" name="checkboxEfectivo" id="checkboxEfectivo" onchange="validarEnvioYEfectivo(899.00);">
+                                                            <label for="checkboxEfectivo" style="margin-bottom:0px;">Pagar en efectivo al retirar</label>
                                                         </div>
                                                       </th>
                                                     </tr>
@@ -438,9 +417,25 @@
 
                             <div class="row row-no-padding mt-5">
                                 <div class="col-lg-7 order-2 order-lg-1">
+                                    <div class="row  row-no-padding h-50">
 
-                                    <div class="row  row-no-padding h-100">
-                                        <div class="sidebar sidebar--style-4 col align-self-start bg-warning mt-lg-0 mt-4" >
+
+                                        <div class="sidebar sidebar--style-4 col align-self-start mt-lg-0 mt-4">
+                                            <div class="sidebar-object mb-0">
+                                                <div class="icon-block icon-block--style-1-v2">
+                                                    <div class="block-icon block-icon-sm pt-2">
+                                                        <i class="icon-communication-025"></i>
+                                                    </div>
+                                                    <div class="block-content">
+                                                        <h3 class="heading heading-6 strong-500">Vas a recibir los pasos para continuar por mail. <strong>Si no aparece chequeá la carpeta de Spam o comunicate con nosotros!</strong></h3>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row  row-no-padding h-50">
+                                        <div class="sidebar sidebar--style-4 col align-self-end bg-warning mt-lg-0 mt-4" >
                                             <div class="sidebar-object mb-0">
                                                 <div class="icon-block icon-block--style-1-v2">
                                                     <div class="block-icon block-icon-sm pt-2">
@@ -462,13 +457,12 @@
                                         <div class="sidebar-object mb-0">
                                             <div class="icon-block icon-block--style-1-v2">
 
-                                                <!--<a mp-mode="modal" href="https://www.mercadopago.com/mla/checkout/pay?pref_id=185944080-50a46900-6616-42ba-b6cb-c9a19c60d93e" name="MP-payButton" class='blue-ar-l-rn-none'>Pagar</a>-->
-                                                <a id="botonPagar" style="margin:1px;"  onclick="checkValidation('cs1-kit');" href="#" class='blue-ar-l-rn-none' name="MP-payButton">Pagar</a>
+                                                <a mp-mode="modal" href="https://www.mercadopago.com/mla/checkout/pay?pref_id=185944080-50a46900-6616-42ba-b6cb-c9a19c60d93e" name="MP-payButton" class='blue-ar-l-rn-none'>Pagar</a>
                                                 <script type="text/javascript">
                                                 (function(){function $MPC_load(){window.$MPC_loaded !== true && (function(){var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = document.location.protocol+"//secure.mlstatic.com/mptools/render.js";var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.$MPC_loaded = true;})();}window.$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;})();
                                             </script>
 
-                                                <!--<a onclick="checkValidation('cs1-kit');" href="#" class="btn btn-styled btn-orange"> pagar</a>-->
+                                                <a onclick="checkValidation('cs1-kit');" href="#" class="btn btn-styled btn-orange"> pagar</a>
                                                 <script type="text/javascript">
 
 
@@ -476,7 +470,7 @@
                                                 <div class="payment-container row ">
 
                                                     <div class="col-2 mt-3"> <img src="http://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/mercadopago@2x.png" alt="" height="29"></div>
-                                                    <span class="col-10 mt-3 c-gray-light"><i class="fa fa-lock" aria-hidden="true"></i> <strong>&nbsp;&nbsp; tarjetas de crédito y débito</strong></span>
+                                                    <span class="col-10 mt-3 c-gray-light"><i class="fa fa-lock" aria-hidden="true"></i> <strong> tarjetas de crédito y débito</strong></span>
                                                     <div class="col-2 mt-1"> <img src="http://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/visa@2x.png" alt="" height="29"> </div>
                                                     <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/mastercard@2x.png" alt="" height="29"></div>
                                                     <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/amex@2x.png" alt="" height="29"></div>
@@ -491,7 +485,10 @@
                                                     <div class="col-2 mt-1"><img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/rapipago@2x.png" alt="" height="29"></div><!--
                                                     <img src="http://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/todopago@2x.png" alt="" height="29"><img src="http://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/ar/banelco@2x.png" alt="" height="29">                                                                            <img src="http://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/paypal@2x.png" alt="" height="29">
                                                     -->
-
+                                                    <div class="checkbox col-12 mt-2 text-left ml-1">
+                                                        <input type="checkbox" name="checkboxEfectivo" id="checkboxEfectivo" onchange="validarEnvioYEfectivo(899.00);">
+                                                        <label for="checkboxEfectivo" style="margin-bottom:0px;">Pagar en efectivo al retirar</label>
+                                                    </div>
 
                                                 </div>
 
