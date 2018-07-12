@@ -2,19 +2,29 @@ var huboError;
 var idEnvio=0;
 var precioEnvio=0;
 
+if(getUrlParameter("pago")=="incompleto"){
+  procesoPagoInterrumpido();
+  agregarEstadoDeVenta(EstadosPagos.mpPending,"checkout.js - redirigido MP");
+} else if (getUrlParameter("pago")=="error"){
+  procesoPagoInterrumpido();
+  agregarEstadoDeVenta(EstadosPagos.mpRejected,"checkout.js - redirigido MP");
+}
+
+
 $(document).ajaxStart(function(){
   huboError = false;
   $("#envios").css("display","none");
   $("#loader-envios").css("display","block");
   $("#radio-retira").prop('checked', true);
-    $("#error-calc-envio").css("display","none");
-
+  $("#error-calc-envio").css("display","none");
+  console.log("ajaxStart");
 });
 $(document).ajaxComplete(function(){
   $("#loader-envios").css("display","none");
   if(!huboError){
     $("#envios").css("display","flex");
   }
+  console.log("ajaxComplete");
 });
 
 $(document).ajaxError(function(event, request, settings) {
@@ -22,6 +32,7 @@ $(document).ajaxError(function(event, request, settings) {
   $("#loader-envios").css("display","none");
   $("#envios").css("display","none");
   $("#error-calc-envio").css("display","block");
+  console.log("ajaxError");
 });
 
 function calcularEnvio(producto){
@@ -75,61 +86,144 @@ function validarEnvioYEfectivo(valorProducto){
 function informarReglasEfectivoYEnvio(){
   $('#informarReglasEfectivoYEnvio').modal('show');
 }
+function procesoPagoInterrumpido(){
+  $('#procesoPagoInterrumpido').modal('show');
+}
+function errorMP(){
+  $('#errorMP').modal('show');
+}
+function loadingMP(bool){
+  if(bool){
+    $('#loadingMP').modal('show');
+  } else {
+    $('#loadingMP').modal('hide');
+  }
+}
+function loadingEfectivo(bool){
+  if(bool){
+    $('#loadingEfectivo').modal('show');
+  } else {
+    $('#loadingEfectivo').modal('hide');
+  }
+}
 
-function checkValidation(producto){
 
+// INICIAR COMPRA
+function iniciarCompra(producto){
   var frmvalid = $("#frmDatos").valid({errorClass: "authError"});
   if (frmvalid) {
     var nombre = $("#nombre").val();
     var mail = $("#mail").val();
     var suscribirse = $("#checkboxSuscribirse").is(':checked');
-    //idEnvio
-    //precioEnvio
-    //valorProducto
     var efectivo = $("#checkboxEfectivo").is(':checked');
 
-    guardarInicioDeCompra(nombre, mail, suscribirse, idEnvio, precioEnvio, producto, efectivo);
+    guardarInicioDeCompra(nombre, mail, suscribirse, idEnvio, precioEnvio, producto, efectivo, "checkout.js");
+  }
+}
 
+// GUARDAR INICIO DE COMPRA
+function guardarInicioDeCompra(nombre, mail, suscribirse, idEnvio, precioEnvio, producto, efectivo, comentario){
+  $.ajax({
+     type: "POST", url: "../php/guardar-inicio-compra.php",
+     data: {pnombre: nombre, pmail:mail, psuscribirse:suscribirse, pidEnvio:idEnvio, pprecioEnvio:precioEnvio, pproducto:producto, pefectivo:efectivo,pcomentario:comentario},
+     beforeSend: function(xhr){
+         console.log("guardando inicio de compra: "+nombre+" "+ mail+" "+ suscribirse+" "+ idEnvio+" "+ precioEnvio+" "+ producto+" "+ efectivo);
+         if (efectivo){
+           loadingEfectivo(true);
+         } else {
+           loadingMP(true);
+         }
+     },
+     error: function(obj,text,error) {
+         console.log("guardando inicio de compra: ERROR:"+obj.responseText);
+         if (efectivo){
+           loadingEfectivo(false);
+         } else {
+           loadingMP(false);
+         }
+         errorMP();
+     },
+     success: function(data, textStatus, jqXHR){
+       console.log("guardando inicio de compra: Ok");
+         if (efectivo){
+           window.location.href="checkout-listo.html";
+         } else {
+           crearPreferenciaPagoMP(nombre, mail, producto);
+         }
+     }
+  });
+
+}
+
+// CREAR PREFERENCIA MP
+function crearPreferenciaPagoMP(nombre, mail, producto){
+  $.ajax({
+     type: "POST", url: "../php/generar-preferencia-mp.php",
+     data: {pnombre: nombre, pmail:mail, pproducto:producto},
+     beforeSend: function(xhr){
+         console.log("generando preferencia MP");
+     },
+     error: function(obj,text,error) {
+       console.log("generando preferencia MP: ERROR:"+obj.responseText);
+       loadingMP(false);
+       errorMP();
+
+     },
+     success: function(data, textStatus, jqXHR){
+       console.log("generando preferencia MP Ok"+ data);
+       loadingMP(false);
+       ejecutarPagoMP(data);
+     }
+  });
+}
+
+// EJECUTAR PREFERENCIA DE PAGO MP
+function ejecutarPagoMP(url){
     $MPC.openCheckout ({
-        url: "https://www.mercadopago.com/mla/checkout/pay?pref_id=185944080-50a46900-6616-42ba-b6cb-c9a19c60d93e",
+        url: url,
         mode: "modal",
         onreturn: function(json) {
           if (json.collection_status=='approved'){
-              alert ('Pago acreditado');
+              agregarEstadoDeVenta(EstadosPagos.mpApproved,"checkout.js");
+              window.location.href="checkout-listo.html";
           } else if(json.collection_status=='pending'){
-              alert ('El usuario no completó el pago');
+              agregarEstadoDeVenta(EstadosPagos.mpPending,"checkout.js");
+              procesoPagoInterrumpido();
           } else if(json.collection_status=='in_process'){
-              alert ('El pago está siendo revisado');
+              agregarEstadoDeVenta(EstadosPagos.mpInProcess,"checkout.js");
+              window.location.href="checkout-listo.html";
           } else if(json.collection_status=='rejected'){
-              alert ('El pago fué rechazado, el usuario puede intentar nuevamente el pago');
-          } else if(json.collection_status==null){
-              alert ('El usuario no completó el proceso de pago, no se ha generado ningún pago');
+              agregarEstadoDeVenta(EstadosPagos.mpRejected,"checkout.js");
+              procesoPagoInterrumpido();
+          } else {
+              agregarEstadoDeVenta(EstadosPagos.desconocido,"checkout.js - "+json.collection_status);
+              procesoPagoInterrumpido();
           }
         }
     });
-    //alert(" nombre:"+nombre+" \n mail:"+mail+" \n suscribirse:"+suscribirse+" \n idEnvio:"+idEnvio+" \n precioEnvio:"+precioEnvio+" \n valorProducto:"+valorProducto+" \n efectivo:"+efectivo)
-  }
 }
-function guardarInicioDeCompra(nombre, mail, suscribirse, idEnvio, precioEnvio, producto, efectivo){
-  var botonPagar = $("#botonPagar");
+
+function agregarEstadoDeVenta(idEstado, comentario){
+  console.log("agregando estado a venta: "+idEstado);
   $.ajax({
      type: "POST", // Method type GET/POST
-     url: "../php/guardar-inicio-compra.php", //Ajax Action url
-     data: {pnombre: nombre, pmail:mail, psuscribirse:suscribirse, pidEnvio:idEnvio, pprecioEnvio:precioEnvio, pproducto:producto, pefectivo:efectivo},
+     url: "../php/venta-agregar-estado.php", //Ajax Action url
+     data: {pidEstado: idEstado, pcomentario:comentario},
 
      // Before call ajax you can do activity like please wait message
      beforeSend: function(xhr){
-         //botonPagar.text("antes");
+         //alert("ok");
      },
 
      //Will call if method not exists or any error inside php file
      error: function(obj,text,error) {
-       //alert(obj.responseText);
+       console.log("agregando estado a venta: "+idEstado+" ERROR:"+obj.responseText);
+       //alert("error");
      },
 
      success: function(data, textStatus, jqXHR){
-         //botonPagar.text("ok");
+       console.log("agregando estado a venta: "+idEstado+" Ok");
+         //alert("ok");
      }
   });
-
 }

@@ -2,6 +2,7 @@
 
 //include 'funciones.php';
 require_once 'db.php';
+require_once "EstadosPagos.php";
 
 if(!isset($_SESSION)){session_start();}
 
@@ -15,6 +16,7 @@ $suscribirse = $_POST['psuscribirse']=="true" ? 1 : 0;
 $idEnvio = $_POST['pidEnvio'];
 $precioEnvio = $_POST['pprecioEnvio'];
 $producto = $_POST['pproducto'];
+$comentario = $_POST['pcomentario'];
 $efectivo = $_POST['pefectivo']=="true" ? 1 : 0;
 $precioProducto=null;
 
@@ -35,15 +37,25 @@ switch ($producto) {
 //header('HTTP/1.1 500 Internal Server Error'); exit("nom:".$nombre.$mail."sus:".$suscribirse.$idEnvio.$precioEnvio.$producto.$efectivo);
 $error=0;
 try {
-  $stmt = DB::run("INSERT INTO ventas (producto, precioProducto, nombre, mail, sessionId, idEnvio, precioEnvio, efectivo, suscribirse, fechaYhora ) VALUES (?,?,?,?,?,?,?,?,?,now())",
+  $stmt = DB::run("INSERT INTO venta (producto, precioProducto, nombre, mail, sessionId, idEnvio, precioEnvio, efectivo, suscribirse, fechaYhora ) VALUES (?,?,?,?,?,?,?,?,?,now())",
   [$producto, $precioProducto, $nombre, $mail, $sessionId,$idEnvio, $precioEnvio, $efectivo, $suscribirse]);
-}catch (Exception $e){
-  $error=1;
+  $idVenta = DB::lastInsertId();
 
+  $_SESSION['idVenta'] = $idVenta;
+
+  if($efectivo==1){
+    $stmt = DB::run("INSERT INTO venta_estado (id_venta, id_estado, comentario, fechaYhora) VALUES (?,?,?,now())",
+    [$idVenta, EstadosPagos::checkoutEfectivo, $comentario]);
+  } else {
+    $stmt = DB::run("INSERT INTO venta_estado (id_venta, id_estado, comentario, fechaYhora) VALUES (?,?,?,now())",
+    [$idVenta, EstadosPagos::checkoutMp, $comentario]);
+  }
+}catch (Exception $e){
+    $error=1;
     throw $e;
 } finally {
   if( $suscribirse == 1){
-    $stmt = DB::run("INSERT INTO suscripciones (nombre, mail, campania, fechaAgregado) VALUES (?,?,?,now())",
+    $stmt = DB::run("INSERT INTO suscripcion (nombre, mail, campania, fechaAgregado) VALUES (?,?,?,now())",
     [$nombre, $mail, "compra ".$producto]);
   }
   if($error==1){

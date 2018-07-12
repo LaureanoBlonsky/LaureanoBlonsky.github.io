@@ -144,6 +144,97 @@
  </div>
   </div>
 
+    <div class="modal" id="procesoPagoInterrumpido" tabindex="-1" role="dialog" style="top: 10%;">
+      <div class="modal-dialog" role="document">
+       <div class="modal-content">
+           <div class="modal-header py-4">
+               <h5 class="modal-title">El pago no se ha efectuado</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">×</span>
+               </button>
+           </div>
+           <div class="modal-body">
+               <p class="mb-0">El proceso de pago se ha interrumpido antes de que se concretara.</p>
+               <br><p class="mb-0"><strong>Vuelve a intentarlo</strong> o contactate con nosotros para finalizar el pedido.</p>
+           </div>
+           <div class="modal-footer">
+
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+           </div>
+       </div>
+   </div>
+    </div>
+
+      <div class="modal" id="errorMP" tabindex="-1" role="dialog" style="top: 10%;">
+        <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header py-4">
+                 <h5 class="modal-title">MercadoPago - Error de conexión</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">×</span>
+                 </button>
+             </div>
+             <div class="modal-body">
+                 <p class="mb-0">Hubo un error de conexión con el servicio de MercadoPago.</p>
+                 <br><p class="mb-0"><strong>Vuelve a intentarlo</strong> o contactate con nosotros para finalizar el pedido.</p>
+             </div>
+             <div class="modal-footer">
+
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+             </div>
+         </div>
+     </div>
+      </div>
+
+
+
+  <div class="modal" id="loadingMP" tabindex="-1" role="dialog" style="top: 10%;">
+    <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header py-4">
+             <!--<h5 class="modal-title">Conectando &nbsp;<i class="fa fa-lock" aria-hidden="true"></i></h5>-->
+             <h5 class="modal-title">Conectando &nbsp;<i class="fa fa-gear fa-spin" style="font-size:24px;"></i></h5>
+
+             <button type="button" class="close" style="opacity:0.6 !important;">
+                 <i class="fa fa-lock" aria-hidden="true"></i>
+             </button>
+         </div>
+         <div class="modal-body">
+             <!--<p class="mb-0">Por el momento, sólo se puede pagar en <strong>Efectivo</strong> cuando se retira el producto por nuestro local, <strong>sin envío</strong>.</p>
+             <br><p class="mb-0">Cualquier cosa no dudes en comunicarte con nosotros.</p>-->
+             <img src="../assets/images/mp.gif">
+         </div>
+         <div class="modal-footer">
+
+
+         </div>
+     </div>
+  </div>
+  </div>
+  <div class="modal" id="loadingEfectivo" tabindex="-1" role="dialog" style="top: 10%;">
+    <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header py-4">
+             <!--<h5 class="modal-title">Conectando &nbsp;<i class="fa fa-lock" aria-hidden="true"></i></h5>-->
+             <h5 class="modal-title">Concretando compra &nbsp;<i class="fa fa-gear fa-spin" style="font-size:24px;"></i></h5>
+
+             <button type="button" class="close" style="opacity:0.6 !important;">
+                 <i class="fa fa-lock" aria-hidden="true"></i>
+             </button>
+         </div>
+         <div class="modal-body">
+             <p class="mb-0"><strong>Felicidades!</strong> Se está concretando la compra.</p>
+
+             <!--<img src="../assets/images/mp.gif">-->
+         </div>
+         <div class="modal-footer">
+
+
+         </div>
+     </div>
+  </div>
+  </div>
+
 
 
 <!-- MAIN WRAPPER -->
@@ -463,7 +554,7 @@
                                             <div class="icon-block icon-block--style-1-v2">
 
                                                 <!--<a mp-mode="modal" href="https://www.mercadopago.com/mla/checkout/pay?pref_id=185944080-50a46900-6616-42ba-b6cb-c9a19c60d93e" name="MP-payButton" class='blue-ar-l-rn-none'>Pagar</a>-->
-                                                <a id="botonPagar" style="margin:1px;"  onclick="checkValidation('cs1-kit');" href="#" class='blue-ar-l-rn-none' name="MP-payButton">Pagar</a>
+                                                <a id="botonPagar" style="margin:1px;"  onclick="iniciarCompra('cs1-kit');" href="#" class='blue-ar-l-rn-none' name="MP-payButton">Pagar</a>
                                                 <script type="text/javascript">
                                                 (function(){function $MPC_load(){window.$MPC_loaded !== true && (function(){var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = document.location.protocol+"//secure.mlstatic.com/mptools/render.js";var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.$MPC_loaded = true;})();}window.$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;})();
                                             </script>

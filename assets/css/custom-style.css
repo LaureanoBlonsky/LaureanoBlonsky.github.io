@@ -1,4 +1,9 @@
-.card-MLA-visa,.card-MLA-master,.card-MLA-amex,.card-MLA-naranja,.card-MLA-tarshop,.card-MLA-cencosud,.card-MLA-cabal,.card-MLA-argencard,.card-MLA-pagofacil,.card-MLA-rapipago,.card-MLA-bapropagos,.card-MLA-redlink,.card-MLA-banelco, .card-MLA-nativa {background: url("http://static.mercadoshops.com/static/images/paymethods/mla-paymtehods.png") no-repeat; width: 30px;}
+.card-MLA-visa,.card-MLA-master,.card-MLA-amex,.card-MLA-naranja,.card-MLA-tarshop,.card-MLA-cencosud,.card-MLA-cabal,.card-MLA-argencard,.card-MLA-pagofacil,.card-MLA-rapipago,.card-MLA-bapropagos,.card-MLA-redlink,.card-MLA-banelco, .card-MLA-nativa {
+    
+/*background: url("http://static.mercadoshops.com/static/images/paymethods/mla-paymtehods.png") no-repeat; width: 30px;*/
+    background: url("../images/mla-paymtehods.png") no-repeat; width: 30px;
+
+}
 .card-MLA-visa{background-position: 19 -2px}
 .card-MLA-master{background-position: 19px -29px}
 .card-MLA-amex{background-position: 19px -56px}
@@ -31,8 +36,20 @@
 #payMethod .card-MLA-nativa {background-position: 0px -435px; width: 50px}
 
 /*pref-payments*/
-.pay-safe-column {background: url("http://static.mercadoshops.com/static/images/paymethods/mla-paymtehods.png") no-repeat scroll 0 -380px transparent;float: left;height: 15px;margin:0 0 15px 5px;padding: 8px 0 0 25px; line-height:10px;}
-.pay-safe{background: url("http://static.mercadoshops.com/static/images/paymethods/mla-paymtehods.png") no-repeat 0 -380px; height:22px; padding-left: 21px; line-height: 25px;margin-left: 3px}
+.pay-safe-column {
+    
+    /*background: url("http://static.mercadoshops.com/static/images/paymethods/mla-paymtehods.png") no-repeat scroll 0 -380px transparent;*/
+    background: url("../images/mla-paymtehods.png") no-repeat scroll 0 -380px transparent;
+    
+    
+    
+    float: left;height: 15px;margin:0 0 15px 5px;padding: 8px 0 0 25px; line-height:10px;}
+.pay-safe{
+    
+    /*background: url("http://static.mercadoshops.com/static/images/paymethods/mla-paymtehods.png") no-repeat 0 -380px;*/
+    background: url("../images/mla-paymtehods.png") no-repeat 0 -380px;
+    
+    height:22px; padding-left: 21px; line-height: 25px;margin-left: 3px}
 .pref-payments span, .payMethod span{display:block; text-indent: -9999px; padding: 0; margin: 2px 0 0 5px;opacity:.8; width:55px; height:27;}
 #mpTitle, #custTitle{margin:0 0 15px 48px; font-size:14px}
 .mpcards{line-height: 25px}
@@ -64,7 +81,11 @@ div.shippingPaymethodContent{display:block;}
 
 /*VIP*/
 /*.component.vip .payMethod {clear:left; padding-left: 0}*/
-.mpPayment{background:url("http://static.mercadoshops.com/static/images/paymethods/mla-paymtehods.png") no-repeat 0 -405px; line-height: 16px;height:26px;display:table; text-indent: -9999px; width:98px !important; margin-top: 0; cursor: pointer}
+.mpPayment{
+    /*background:url("http://static.mercadoshops.com/static/images/paymethods/mla-paymtehods.png") no-repeat 0 -405px;*/
+    background:url("../images/mla-paymtehods.png") no-repeat 0 -405px;
+    
+    line-height: 16px;height:26px;display:table; text-indent: -9999px; width:98px !important; margin-top: 0; cursor: pointer}
 p.ch-points-ltrt{cursor: pointer}
 .paymethodsVipContent{display:block;clear:left;}
 .paymethodsVipContent p.pay-safe{width:170px;}
