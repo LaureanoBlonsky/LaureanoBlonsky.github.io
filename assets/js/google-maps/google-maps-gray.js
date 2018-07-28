@@ -1,9 +1,9 @@
 var map;
 
 function initMap() {
-    var myLatlng = new google.maps.LatLng(47.609309, -122.333888);
+    var myLatlng = new google.maps.LatLng(-34.623511, -58.436260);
     var mapOptions = {
-        zoom: 16,
+        zoom: 10,
         scrollwheel: false,
         center: myLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -16,7 +16,7 @@ function initMap() {
         position: myLatlng,
         map: map,
         animation: google.maps.Animation.DROP,
-        title: 'Hello World!'
+        title: 'ArmaTuPedal'
     });
 
     var contentString = '<div class="info-window-content"><h2>Webpixels</h2>' +
