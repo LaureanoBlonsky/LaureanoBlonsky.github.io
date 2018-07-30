@@ -62,7 +62,27 @@
 </style>
 </head>
 <body>
+    <a class="anchor" id="inicio"></a>
+<div class="modal" id="informarErrorSusc" tabindex="-1" role="dialog" style="top: 10%;">
+    <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header py-4">
+             <h5 class="modal-title"> No te pudimos Suscribir!</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">×</span>
+             </button>
+         </div>
+         <div class="modal-body">
+             <p class="mb-0">Estamos trabajando para resolver un problema en el sistema.</p>
+             <br><p class="mb-0">Cualquier cosa no dudes en comunicarte con nosotros.</p>
+         </div>
+         <div class="modal-footer">
 
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+         </div>
+     </div>
+    </div>
+</div>
 
 <!-- MAIN WRAPPER -->
     
@@ -149,13 +169,13 @@
             <div class="st-content">
                 <div class="st-content-inner">
                     <!-- Header -->
-                    <div class="header">
+                    <div class="header fixed-top">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar--bold  navbar-inverse navbar-opaque bg-dark navbar--style-1 fixed-top">
+    <nav class="navbar navbar-expand-lg navbar--bold  navbar-inverse navbar-opaque  navbar--style-1 fixed-top navbarbg">
         <div class="container navbar-container">
             <!-- Brand/Logo -->
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="#" data-animation-in="flipInX" data-animation-delay="1800" data-scroll-to="#inicio">
                 <!--<img src="assets/images/logo/logo-letras-unalinea-blanco-chico-2.png" alt="Boomerang">-->
                 <!--<img src="assets/images/logo/logo-atp-blanco-chico.png" alt="Boomerang">-->
                 <img id="logo" src="assets/images/logo/logo-completo-blanco-mediano.png" alt="Boomerang">
@@ -192,10 +212,38 @@
 
 
         </li>-->
-        <li class="nav-item dropdown">
-            <a href="#" class="nav-link"  data-animation-in="flipInX" data-animation-delay="1800" data-scroll-to="#efectos">
+        <li class="dropdown">
+            <a href="#" class="nav-link"  data-animation-in="flipInX" data-animation-delay="1800" data-scroll-to="#efectos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Efectos
             </a>
+        
+            
+
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="cs1/" class="dropdown-item">
+                        CS1 Compressor
+
+                    </a>
+                </li>
+                <li>
+                    <a href="ff/" class="dropdown-item">
+                        FF Fuzz
+
+                    </a>
+                </li>
+                <li>
+                    <a href="bb" class="dropdown-item">
+                        BB Overdrive
+
+                    </a>
+                </li>             
+       
+            </ul>
+        
+            
+            
+            
 
 
         </li>
@@ -247,7 +295,7 @@
 </div>
 
                     <!-- Slider -->
-<section class="swiper-js-container background-image-holder" data-holder-type="fullscreen" data-holder-offset="">
+<section class="swiper-js-container background-image-holder" data-holder-type="fullscreen" data-holder-offset="" >
     <div class="swiper-container" data-swiper-autoplay="true" data-swiper-effect="slide" data-swiper-items="1" data-swiper-space-between="0">
         <div class="swiper-wrapper">
             <!-- Slide -->
@@ -277,7 +325,7 @@
                                             Dejá de buscar<br>el pedal <strong>perfecto</strong>
                                         </h2>
                                         <h2 class="heading heading-xl strong-600 text-uppercase c-base-1 line-height-1_2">
-                                            Diseñalo
+                                            Diseñalo vos
                                         </h2>
                                         <div class="">
                                             <p class="c-gray-light mt-4">
@@ -369,29 +417,37 @@
 </section>
 
 <section class="slice-sm sct-color-1 border-bottom">
-    <div class="row justify-content-center">
+    <form id="sus1" class="row justify-content-center form-default" data-toggle="validator" role="form" onSubmit="JavaScript:suscribir('sus1',1); return false;">
         <div class="col-auto my-auto">
-                <span class="badge badge-md label-inline badge-pill bg-base-1">Nuevo</span>
+                <!--<span class="badge badge-md label-inline badge-pill bg-base-1">Nuevo</span>-->
                 <span class="">Enterate de todo!</span>
         </div>
 
-        <div class="col-lg-5">
+        <div class="col-md-5 ">
             <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="nombre@mimail.com">
+                <input  name="mail" type="email" class="form-control" placeholder="nombre@mimail.com" required="">
                 <span class="input-group-btn">
-                    <button class="btn btn-base-1" type="button">Suscribirme</button>
+                    <div name="loader-susc" class="text-center c-base-1" style=" display:none;">
+                            <i class="fa fa-gear fa-spin" style="font-size:50px;"></i>
+                                </div>
+                                
+                                <div name="ok-susc" class="text-center c-base-1" style=" display:none;">
+                                    <i class="fa fa-check-circle" aria-hidden="true" style="font-size:50px;"></i>                                    
+                                </div>
+                    <button name="susc" class="btn btn-base-1" type="submit">Suscribirme</button>
                 </span>
             </div>
         </div>
-    </div>
+    </form>
 </section>
 
 
-<section class="slice-xs sct-color-2"  id="efectos">
+<section class="slice-xs sct-color-2">
+    <a class="anchor" id="efectos"></a>
     <div class="container">
 
         <div class="section-title section-title--style-1 text-center">
-            <h3 class="heading heading-2 strong-400">
+            <h3 class="heading heading-1 strong-600 animated c-base-1 text-center">
                 <span>Efectos</span>
             </h3>
         </div>
@@ -584,14 +640,15 @@
 </section>-->
 
 
-<section class="sct-color-1" style="padding-bottom:1px;margin-top:80px;" id="comoLoArmas">
+<section class="sct-color-1" style="padding-bottom:1px;margin-top:80px;" >
+    <a class="anchor" id="comoLoArmas"></a>
     <div class="container">
         <div class="row cols-md-space cols-sm-space cols-xs-space align-items-center">
 
 
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="">
-                    <h3 class="heading heading-2 strong-400 animated" data-animation-in="flipInX" data-animation-delay="1800" data-scroll-to="#comoLoArmas">
+                    <h3 class="heading heading-1 strong-600 animated c-base-1 text-center" data-animation-in="flipInX" data-animation-delay="1800" data-scroll-to="#comoLoArmas">
                         ¿Como lo Armás?
                     </h3>
                 </div>
@@ -601,55 +658,58 @@
         </div>
     </div>
 </section>
-<section class="container">
-<section class="sct-color-2 border-top" style="margin-top:40px;">
+                    
+<section class="container border p-0 my-5">
+<section class="sct-color-2 ">
     <div class="row row-no-padding align-items-center cols-xs-space cols-sm-space cols-md-space">
-        <div class="col-lg-6">
-            <img src="assets/images/home/pasos_1.jpg" class="img-fluid img-center">
-        </div>
+        
+        <div class="col-lg-6 order-lg-2">
+            <div class="col-wrapper--text text-center ">                
 
-        <div class="col-lg-6">
-            <div class="col-wrapper--text text-center text-lg-left">
-                <!--<h4 class="heading  heading-1 strong-600">1.</h4>-->
-
-                <div class="section-title section-title--style-1">
+                <div class="section-title section-title--style-1 mb-0">
+                    <span class="heading heading-1 strong-600 animated c-base-1" style="font-size:3.2rem !important;">01</span>
                     <h3 class="section-title-inner heading-3 strong-500 text-normal">
-                        <span>Elegí el modelo</span>
+                        <span>Elegí un efecto</span>
                     </h3>
                     <span class="section-title-delimiter clearfix d-none"></span>
-                    <span class="shadow-subtitle">01</span>
                 </div>
 
 
 
-                <p class="lead mt-4">
+                <p class="lead mt-2">
                     Primero elegís el pedal base sobre el cual se va a construir <strong>tu diseño</strong>.
                 </p>
             </div>
         </div>
+        <div class="col-lg-6 order-lg-1 ">
+            <img src="assets/images/home/pasos_1.jpg" class="img-fluid img-center">
+        </div>
+
     </div>
 </section>
 
 
 <section class="sct-color-1">
     <div class="row row-no-padding align-items-center ">
-        <div class="col-lg-6 order-lg-2">
-            <img src="assets/images/home/VS2.jpg" class="img-fluid img-center">
-        </div>
+        
 
         <div class="col-lg-6 order-lg-1">
-            <div class="col-wrapper--text text-center text-lg-left">
-                <div class="section-title section-title--style-1">
+           <div class="col-wrapper--text text-center ">                
+
+                <div class="section-title section-title--style-1 mb-0">
+                    <span class="heading heading-1 strong-600 animated c-base-1" style="font-size:3.2rem !important;">02</span>
                     <h3 class="section-title-inner heading-3 strong-500 text-normal">
                         <span>Customizalo</span>
                     </h3>
                     <span class="section-title-delimiter clearfix d-none"></span>
-                    <span class="shadow-subtitle">02</span>
                 </div>
-                <p class="lead mt-4">
+                <p class="lead mt-2">
                     Luego elegís las <strong>Características y Mods</strong> que vas a querer que tenga. <!--En cada opción y decisión te asesoramos con audios y/o videos para que puedas elegir lo mejor para la búsqueda de tu sonido.-->
                 </p>
             </div>
+        </div>
+        <div class="col-lg-6 order-lg-2">
+            <img src="assets/images/home/VS2.jpg" class="img-fluid img-center">
         </div>
     </div>
 </section>
@@ -657,60 +717,87 @@
 
 <section class="sct-color-2">
     <div class="row row-no-padding align-items-center">
-        <div class="col-lg-6">
+       
+
+        <div class="col-lg-6 order-lg-2">
+            <div class="col-wrapper--text text-center ">                
+
+                <div class="section-title section-title--style-1 mb-0">
+                    <span class="heading heading-1 strong-600 animated c-base-1" style="font-size:3.2rem !important;">03</span>
+                    <h3 class="section-title-inner heading-3 strong-500 text-normal">
+                        <span>Lo armás vos o te lo armamos</span>
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+                <p class="lead mt-2">
+                    Podés pedir el <strong>Pedal ya terminado, listo para tocar, o el Kit</strong> para que lo armes vos mismo donde quieras.<!--, junto a un manual de Armado Paso a Paso (ver ejemplo).-->
+                </p>
+            </div>
+        </div>
+         <div class="col-lg-6 order-lg-1">
             <img src="assets/images/home/pasos_31.jpg" class="img-fluid img-center">
         </div>
-
-        <div class="col-lg-6">
-            <div class="col-wrapper--text text-center text-lg-left">
-                <div class="section-title section-title--style-1">
-                    <h3 class="section-title-inner heading-3 strong-500 text-normal">
-                        <span>Lo armás o te lo armamos?</span>
-                    </h3>
-                    <span class="section-title-delimiter clearfix d-none"></span>
-                    <span class="shadow-subtitle">03</span>
-                </div>
-                <p class="lead mt-4">
-                    Podés elegir el <strong>Pedal ya terminado, listo para tocar, o el Kit</strong> para que lo armes vos mismo donde quieras.<!--, junto a un manual de Armado Paso a Paso (ver ejemplo).-->
-                </p>
-            </div>
-        </div>
     </div>
 </section>
 
-<section class="sct-color-1">
-    <div class="row row-no-padding align-items-center ">
-        <div class="col-lg-6 order-lg-2">
-            <img src="assets/images/home/zocalos.jpg" class="img-fluid img-center">
-        </div>
 
-        <div class="col-lg-6 order-lg-1">
-            <div class="col-wrapper--text text-center text-lg-left">
-                <div class="section-title section-title--style-1">
-                    <h3 class="section-title-inner heading-3 strong-500 text-normal">
-                        <span>Mantenelo actualizado</span>
-                    </h3>
-                    <span class="section-title-delimiter clearfix d-none"></span>
-                    <span class="shadow-subtitle">04</span>
-                </div>
-                <p class="lead mt-4">
-                    Gracias a la colocación de zócalos en partes estratégicas, vas a poder ir haciéndole <strong>ajustes finos</strong> a lo largo de la envolución de tu sonido.
-                    <!--A lo largo del tiempo tu sonido, equipamiento, oído o incluso tus gustos van a ir cambiando y evolucionando. Esto es parte de Armar tu Pedal, y gracias a la colocación de zócalos en partes estratégicas, vas a poder ir haciéndole ajustes finos a lo largo de todo ese camino.<!-- Cada pedal es un viaje de evolución y ajuste en el tiempo.-->
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
 
 </section>
 
-<section class="slice sct-color-1" style="margin-top:40px;" id="custom">
+                    
+ <!--<section class="slice-xs sct-color-2 border-bottom border-top mt-5 " id="customizaciones">
+                        <div class="container container-sm">
+                            <div class="row cols-delimited">
+
+                                <div class="col-3">
+                                    <div class="icon-block icon-block--style-1-v5 text-center">
+                                 
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="icon-block icon-block--style-1-v5 text-center">
+                                       
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                   
+                                </div>
+
+
+                                    <div class="col-3">
+                                        <div class="icon-block icon-block--style-1-v5 text-center">
+                                          
+                                        </div>
+                                    </div>
+
+
+
+                            </div>
+                        </div>
+                    </section>       -->
+                    
+
+
+<section class="slice sct-color-1" >
+    <a class="anchor" id="custom"></a>
     <div class="container">
         <div class="row cols-md-space cols-sm-space cols-xs-space align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="col-wrapper--spaced">
+                    <h3 class="heading heading-2 strong-400 heading heading-2 animated c-base-1">
+                            ¿Réplica o Customizado?
+                    </h3>
+                    <div class="c-gray-light mt-4">
+                        <!--<strong>El pedal es tuyo</strong>. Vos elegí cuanta historia, herencia y cuanto nuevo le querés dar.<br><br>-->
+                        Ya sea que busques el sonido Vintage y Original de los pedales míticos, darle una nueva perspectiva única tuya, o cualquier punto medio, acá tenés todas las posibilidades.<br><br> <strong>Y si alguna no la habíamos pensado, la agregamos para vos</strong>.
+                    </div>
+                </div>
+            </div>
 
 
-
-            <div class="col-lg-6">
+            <div class="col-lg-6 order-lg-1">
                 <div class="block block-image-holder z-depth-3">
                     <div class="block-image">
                         <img src="assets/images/home/vintageVS7.jpg" class="img-fluid img-center">
@@ -735,29 +822,62 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="col-wrapper--spaced">
-                    <h3 class="heading heading-2 strong-400">
-                            ¿Réplica o Customizado?
-                    </h3>
-                    <div class="c-gray-light mt-4">
-                        <strong>El pedal es tuyo</strong>. Vos elegí cuanta historia y herencia, y cuanto nuevo le querés dar.<br><br> Ya sea que buscas el sonido Vintage y Original de los pedales míticos, darle una nueva perspectiva única tuya, o cualquier punto medio, acá tenés todas las posibilidades.<br><br> <strong>Y si alguna no la habíamos pensado, la agregamos para vos</strong>.
-                    </div>
-                </div>
-            </div>
+            
 
         </div>
     </div>
 </section>
 
-<section class="sct-color-1">
+                    <section class="sct-color-1 slice mb-0 mt-0 pt-0" >
     <div class="container">
         <div class="row cols-md-space cols-sm-space cols-xs-space align-items-center">
 
+<div class="col-lg-6">
+                <div class="col-wrapper--spaced">
+                    <h3 class="heading heading-2 strong-400 heading heading-2 animated c-base-1">
+                        Mantenelo actualizado
+                    </h3>
+                    <div class="c-gray-light mt-4">
+                        <!--A lo largo del tiempo tu sonido, equipamiento, oído o incluso tus gustos van a ir cambiando y evolucionando.<br><br> Esto es parte de Armar tu Pedal, y <strong>gracias a la colocación de zócalos en partes estratégicas, vas a poder ir haciéndole ajustes finos a lo largo de todo ese camino</strong>.<br><br> Cada pedal es un viaje de evolución y ajuste en el tiempo.
+                        Cada pedal es un viaje de evolución y ajuste en el tiempo.
+                        <br><br>-->
+                        Gracias a la colocación de <strong>zócalos en partes estratégicas</strong>, vas a poder ir haciéndole ajustes finos a lo largo del tiempo.<br><br> 
+                        <strong>No importa si no sabes de electrónica</strong>. Te indicamos cuales componentes podes cambiar, como hacerlo y te damos los distintos valores para que los tengas y pruebes cuando quieras.
+
+                    </div>
+                </div>
+            </div>
 
             <div class="col-lg-6">
-                <div class="col-wrapper--spaced">
-                    <h3 class="heading heading-2 strong-400">
+                <div class="block block-image-holder z-depth-3">
+                    <div class="block-image">
+                        <img src="assets/images/home/zocalos.jpg" class="img-fluid img-center">
+            <!--
+                        <a href="https://www.youtube.com/watch?v=hdw1uKiTI5c" data-fancybox>
+                            <span class="play-video">
+                                <i class="fa fa-play"></i>
+                            </span>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
+                    
+                    
+<section class="sct-color-1 slice mb-0 mt-0 pt-0">
+    <div class="container">
+        <div class="row cols-md-space cols-sm-space cols-xs-space align-items-center">
+
+      
+          
+            
+                  <div class="col-lg-6 order-lg-2">
+                <div class="col-wrapper--spaced pb-2 pt-2">
+                    <h3 class="heading heading-2 strong-400 heading heading-2 animated c-base-1">
                             Relajate!
                     </h3>
                     <div class="c-gray-light mt-4">
@@ -768,9 +888,8 @@ Por eso, también nos despreocupamos nosotros ofreciendote garantía total sobre
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-6">
-                <div class="block block-image-holder z-depth-3">
+  <div class="col-lg-6 order-lg-1">
+                <div class="block block-image-holder z-depth-3 ">
                     <div class="block-image">
                         <img src="assets/images/home/relajate.jpg" class="img-fluid img-center">
             <!--
@@ -787,17 +906,11 @@ Por eso, también nos despreocupamos nosotros ofreciendote garantía total sobre
     </div>
 </section>
 
-<section class="slice sct-color-1" id="envios">
+<section class="slice sct-color-1" >
+    <a class="anchor" id="envios"></a>
     <div class="container">
         <div class="row cols-md-space cols-sm-space cols-xs-space align-items-center">
-            <div class="col-lg-6">
-                <div class="block block-image-holder">
-                    <div class="block-image">
-                        <img src="assets/images/extras/envio_2.jpg" class="img-fluid img-center">
-    
-                    </div>
-                </div>
-            </div>
+            
 
             <div class="col-lg-6">
                 <div class="col-wrapper--spaced">
@@ -810,6 +923,14 @@ Por eso, también nos despreocupamos nosotros ofreciendote garantía total sobre
                 </div>
             </div>
 
+            <div class="col-lg-6">
+                <div class="block block-image-holder">
+                    <div class="block-image">
+                        <img src="assets/images/extras/envio_2.jpg" class="img-fluid img-center">
+    
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -940,21 +1061,21 @@ Por eso, también nos despreocupamos nosotros ofreciendote garantía total sobre
                     <h3 class="heading heading-sm strong-600 text-uppercase ls-1">pago seguro | efectivo</h3>         
                                                                         <div class="payment-container row px-4">
 
-                                                    <div class="col-2 mt-3"> <img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/mercadopago@2x.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-3"> <img src="assets/images/icons/cards/mercadopago.png" alt="" height="20" class="img-grayscale"></div>
                                                     <span class="col-10 mt-3 c-gray-light"><i class="fa fa-lock" aria-hidden="true"></i> <strong>&nbsp;&nbsp; efectivo, débito y crédito</strong></span>
-                                                    <div class="col-2 mt-1"> <img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/visa@2x.png" alt="" height="20" class="img-grayscale"> </div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/mastercard@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/amex@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/tarjeta-naranja@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/tarjeta-shopping@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/nativa@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/cencosud@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/cabal@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/argencard@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/diners@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/pagofacil@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="https://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/rapipago@2x.png" alt="" height="20" class="img-grayscale"></div><!--
-                                                    <img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/todopago@2x.png" alt="" height="20" class="img-grayscale"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/banelco@2x.png" alt="" height="20" class="img-grayscale">                                                                            <img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/paypal@2x.png" alt="" height="20">
+                                                    <div class="col-2 mt-1"> <img src="assets/images/icons/cards/visa2.png" alt="" height="20" class="img-grayscale"> </div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/mastercard2.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/amex.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/tarjeta-naranja.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/tarjeta-shopping.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/nativa.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/cencosud.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/cabal.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/argencard.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/diners.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/pagofacil.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="assets/images/icons/cards/rapipago.png" alt="" height="20" class="img-grayscale"></div><!--
+                                                    <img src="assets/images/icons/cards/todopago.png" alt="" height="20" class="img-grayscale"><img src="assets/images/icons/cards/ar/banelco.png" alt="" height="20" class="img-grayscale">                                                                            <img src="assets/images/icons/cards/paypal.png" alt="" height="20">
                                                     -->
 
 
@@ -1070,29 +1191,27 @@ Por eso, también nos despreocupamos nosotros ofreciendote garantía total sobre
                             <p class="mb-2">
                                 Que cada pedal nuevo te llegue diréctamente a tu mail.
                             </p>
-
-                            <!--<form class="form-default" data-toggle="validator" role="form" onSubmit="JavaScript:suscribir(document.getElementById('mail2').)">-->
-                            <form class="form-default" data-toggle="validator" role="form" onSubmit="JavaScript:suscribir($('#mail2').val(),2); return false;">
+                            
+                            <form id="sus2" class="form-default" data-toggle="validator" role="form" onSubmit="JavaScript:suscribir('sus2',2); return false;">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group has-feedback">
                                             <label class="control-label sr-only">Mail</label>
-                                            <input id="mail2" type="email" class="form-control input-lg" placeholder="Mail" required="">
+                                            <input name="mail" type="email" class="form-control input-lg" placeholder="nombre@mimail.com" required="">
                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="loader-susc" class="text-center mt-4" style=" display:none;">
+                                <div name="loader-susc" class="text-center " style=" display:none;">
                                     <i class="fa fa-gear fa-spin" style="font-size:24px;"></i>
                                 </div>
                                 
-                                <div id="ok-susc" class="text-center mt-4" style=" display:none;">
-                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                    asdasdasd
+                                <div name="ok-susc" class="text-center " style=" display:none;">
+                                    <i class="fa fa-check-circle" aria-hidden="true" style="font-size:24px;"></i>                                    
                                 </div>
                                 
-                                <button id="susc" type="submit" class="btn btn-base-4">
+                                <button name="susc" type="submit" class="btn btn-base-4">
                                     suscribirme
                                 </button>
                             </form>

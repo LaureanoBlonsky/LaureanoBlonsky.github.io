@@ -59,6 +59,26 @@
 
 </head>
 <body>
+<div class="modal" id="informarErrorSusc" tabindex="-1" role="dialog" style="top: 10%;">
+    <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header py-4">
+             <h5 class="modal-title"> No te pudimos Suscribir!</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">×</span>
+             </button>
+         </div>
+         <div class="modal-body">
+             <p class="mb-0">Estamos trabajando para resolver un problema en el sistema.</p>
+             <br><p class="mb-0">Cualquier cosa no dudes en comunicarte con nosotros.</p>
+         </div>
+         <div class="modal-footer">
+
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+         </div>
+     </div>
+    </div>
+</div>
 
 
 <!-- MAIN WRAPPER -->
@@ -71,13 +91,13 @@
                 <div class="st-content-inner">
 
                     <!-- Header -->
-                    <div class="header">
+                    <div class="header fixed-top">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar--bold  navbar-inverse navbar-opaque bg-dark navbar--style-1 fixed-top">
         <div class="container navbar-container">
             <!-- Brand/Logo -->
-                        <a class="navbar-brand" href="../index.html">
+                        <a class="navbar-brand" href="../">
                 <!--<img src="../assets/images/logo/logo-letras-unalinea-blanco-chico-2.png" alt="Boomerang">-->
                 <!--<img src="../assets/images/logo/logo-atp-blanco-chico.png" alt="Boomerang">-->
                 <img id="logo" src="../assets/images/logo/logo-completo-blanco-mediano.png" alt="Boomerang">
@@ -114,11 +134,34 @@
 
 
         </li>-->
-        <li class="nav-item dropdown">
-            <a href="#" class="nav-link"  data-animation-in="flipInX" data-animation-delay="1800" data-scroll-to="#efectos">
+         <li class="dropdown">
+            
+                     <a href="../#efectos" class=""    data-toggle="dropdown" >
+            <a href="../#efectos" class="nav-link c-white"   >
                Efectos
             </a>
+            </a>
+<ul class="dropdown-menu">
+                <li>
+                    <a href="../cs1/" class="dropdown-item">
+                        CS1 Compressor
 
+                    </a>
+                </li>
+                <li>
+                    <a href="../ff/" class="dropdown-item">
+                        FF Fuzz
+
+                    </a>
+                </li>
+                <li>
+                    <a href="../bb" class="dropdown-item">
+                        BB Overdrive
+
+                    </a>
+                </li>             
+       
+            </ul>
 
         </li>
         <li class="nav-item dropdown">
@@ -151,7 +194,7 @@
 
         </li>
         <li class="nav-item">
-            <a href="../hola/index.html" class="nav-link">
+            <a href="../hola/" class="nav-link">
                Contacto
             </a>
         </li>
@@ -169,7 +212,7 @@
 </div>
 
 
-                    <section class="slice-xl" style="background-image: url(../assets/images/home/relajate.jpg); background-position: bottom center; background-size: cover;">
+                    <section class="slice-xl" style="background-image: url(../assets/images/home/relajate.jpg); background-position: bottom center; background-size: cover;" style="margin-top: 117px;">
                         <span class="mask mask-dark--style-2"></span>
                         <div class="container">
                             <div class="row">
@@ -244,7 +287,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-6">
                                     <!-- Contact form -->
-                                    <form id="form_contact" data-action="../php/send-email.php" class="form-default" role="form">
+                                    <form id="form_contact" data-action="/atp/php/send-email.php" class="form-default" role="form">
                                         <div class="form-group has-feedback">
                                             <input type="text" name="name" class="form-control form-control-xl" placeholder="Tu nombre" required>
                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -258,7 +301,7 @@
                                         </div>
 
                                         <div class="form-group has-feedback">
-                                            <input type="text" name="website" class="form-control form-control-xl" placeholder="Número de teléfono (si querés la respuesta por Whatsapp)">
+                                            <input type="text" name="phone" class="form-control form-control-xl" placeholder="Número de teléfono (si querés la respuesta por Whatsapp)">
                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -296,12 +339,12 @@
                     <div class="col">
    
                        <ul class="footer-links">
-                            <li><a href="../index.html" >Inicio</a></li>
-                            <li><a href="../index.html#efectos" >Efectos</a></li>
-                            <li><a href="../index.html#comoLoArmas" >¿Como lo armás?</a></li>
-                            <li><a href="../index.html#custom" >Custom</a></li>
-                            <li><a href="../index.html#envios">Envíos</a></li>
-                            <li><a href="../index.html#pago">Métodos de pago</a></li>
+                            <li><a href="../" >Inicio</a></li>
+                            <li><a href="../#efectos" >Efectos</a></li>
+                            <li><a href="../#comoLoArmas" >¿Como lo armás?</a></li>
+                            <li><a href="../#custom" >Custom</a></li>
+                            <li><a href="../#envios">Envíos</a></li>
+                            <li><a href="../#pago">Métodos de pago</a></li>
                         </ul>
                      </div>
                 </div>
@@ -314,17 +357,17 @@
 
                         <ul class="footer-links">
                              <li>
-                                 <a href="../cs1/index.html">
+                                 <a href="../cs1/">
                                      CS1 Compressor
                                  </a>
                              </li>
                              <li>
-                                 <a href="../ff/index.html">
+                                 <a href="../ff/">
                                      FF Fuzz
                                  </a>
                              </li>
                              <li>
-                                 <a href="../bb/index.html" >
+                                 <a href="../bb/" >
                                      BB Overdrive
                                  </a>
                              </li>
@@ -382,19 +425,26 @@
                                 Que cada pedal nuevo te llegue diréctamente a tu mail.
                             </p>
 
-                            <form class="form-default" data-toggle="validator" role="form">
+                                        <form id="sus2" class="form-default" data-toggle="validator" role="form" onSubmit="JavaScript:suscribir('sus2',24); return false;">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group has-feedback">
                                             <label class="control-label sr-only">Mail</label>
-                                            <input type="email" class="form-control input-lg" placeholder="Mail" required="">
+                                            <input name="mail" type="email" class="form-control input-lg" placeholder="nombre@mimail.com" required="">
                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <button type="submit" class="btn btn-base-4">
+                                <div name="loader-susc" class="text-center " style=" display:none;">
+                                    <i class="fa fa-gear fa-spin" style="font-size:24px;"></i>
+                                </div>
+                                
+                                <div name="ok-susc" class="text-center " style=" display:none;">
+                                    <i class="fa fa-check-circle" aria-hidden="true" style="font-size:24px;"></i>                                    
+                                </div>
+                                
+                                <button name="susc" type="submit" class="btn btn-base-4">
                                     suscribirme
                                 </button>
                             </form>
@@ -481,6 +531,6 @@
 
 <!-- App JS -->
 <script src="../assets/js/boomerang.min.js"></script>
-
+<script src="../js/suscripcion.js"></script>
 </body>
 </html>

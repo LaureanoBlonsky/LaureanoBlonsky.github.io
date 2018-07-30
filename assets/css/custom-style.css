@@ -1,3 +1,45 @@
+.sct-color-5 {
+    background-color: #efefef;
+}
+    a.anchor {
+  display: block;
+  position: relative;
+  top: -80px; 
+  visibility: hidden;
+}
+@keyframes navbarAnim {
+    from {}
+    to {padding: 0.375rem 1.25rem;}
+}
+@keyframes navbarAnimD {
+    from {}
+    to {background-color: #343a40;}
+}
+.header.scrolled #logo{
+    content:url("../images/logo/logo-atp-blanco-chico.png");}
+.header.scrolled .nav-link {
+
+    animation-name: navbarAnim;
+    animation-duration: 1s;
+    animation-direction:normal;
+    animation-fill-mode: forwards;
+}
+ .navbar {
+    z-index: 999;
+
+}
+
+.header.scrolled .navbarbg {    
+    animation-name: navbarAnimD;
+    animation-duration: 1s;
+    animation-direction:normal;
+    animation-fill-mode: forwards;
+    
+}
+
+.w-80{
+    width: 80%;
+}
 .w-85{
     width: 85%;
 }

@@ -1,109 +1,118 @@
 <?php
-require 'phpmailer/PHPMailerAutoload.php';
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+    
+    require 'PHPMailer/src/Exception.php';
+    require 'PHPMailer/src/PHPMailer.php';
+    require 'PHPMailer/src/SMTP.php';
+    require_once 'db.php';
 
-$post = (! empty($_POST)) ? true : false;
-$recaptcha = $_POST['g-recaptcha-response'];
-$error = '';
 
-if(! empty($recaptcha)):
+    $post = (! empty($_POST)) ? true : false;
+$error=0;
 
-    // Your Google Recaptcha secret key
-    $secret = 'secret_key';
 
-    // Verifiy recaptcha code validity
-    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$recaptcha);
-    $responseData = json_decode($verifyResponse);
-
-    if($responseData->success):
-        if($post):
+//if($post):
             // POST variables
             $name = stripslashes($_POST['name']);
-            $phone = stripslashes($_POST['phone']);
-            $email = trim($_POST['email']);
-            $phone = stripslashes($_POST['phone']);
-            $website = stripslashes($_POST['website']);
+            $email = trim($_POST['email']);                        
             $message = stripslashes($_POST['message']);
+            $date = date('Y-m-d H:i:s');
 
+            if (isset($_POST['phone'])  && !empty($_POST["phone"]) ){
+                $phone = stripslashes($_POST['phone']);                
+            } else {
+                $phone = null;
+            }
+//endif;
+
+
+try {
+    $stmt = DB::run("INSERT INTO contacto (nombre,mail,telefono,mensaje, fechaYhora) VALUES (?,?,?,?,now())",
+    [$name,$email, $phone, $message]);
+        
+  //$_SESSION['idVenta'] = $idVenta;
+  
+}catch (Exception $e){
+    
+    $error=1;
+    error_log("error: ".$e);
+    throw $e;
+} finally {  
+  if($error==1){
+    header('HTTP/1.1 500 Internal Server Error'); exit("Hubo un inconveniente al intentar suscribirte. Lo estamos arreglando! Intentá mas tarde por favor.");
+  }
+    
+    
+try {
             // Mail subject
-            $subject = "New message from your website";
-
+            $subject = "[ATP-WEB] Nuevo contacto - ".$name;
+        
             // Mail body
-            $body  = "You received an email from your website with the following data:<br><br>";
+            $body  = "Nuevo contacto:<br><br>";
             $body .= '<table>';
             $body .= '<tbody>';
-            $body .= '<tr><td>Name: </td><td><strong>'.$name.'</strong></td></tr>';
-            $body .= '<tr><td>Email</td><td>'. $email .'</td></tr>';
-            $body .= '<tr><td>Phone</td><td>'. $phone .'</td></tr>';
-            $body .= '<tr><td>Website</td><td>'. $website .'</td></tr>';
-            $body .= '<tr><td>Message</td><td>'. $message .'</td></tr>';
+            $body .= '<tr><td>Fecha y hora:</td><td><strong>'.$date.'</strong></td></tr>';
+            $body .= '<tr><td>Nombre:</td><td><strong>'.$name.'</strong></td></tr>';
+            $body .= '<tr><td>Mail:</td><td>'. $email .'</td></tr>';
+            $body .= '<tr><td>Tel:</td><td>'. $phone .'</td></tr>';            
+            $body .= '<tr><td>Mensaje:</td><td>'. $message .'</td></tr>';
+
             $body .= '</tbody>';
-            $body .= '</table>';
+            $body .= '</table>';            
 
-            // Add you server side validation here and use the $error variable in order to verify the input states
-            // ...
-            // End: Validaton
-
-            // Sending mail function
-            if(! $error):
-                // Initiate PHP Mailer
                 $mail = new PHPMailer;
-
-                //$mail->SMTPDebug = 3;                                 // Enable verbose debug output
-
-                // SMTP account settings
-                $mail->isSMTP();                                        // Set mailer to use SMTP
-                $mail->Host = 'smtp.mail.com';                          // Specify main and backup SMTP servers
-                $mail->SMTPAuth = true;                                 // Enable SMTP authentication
-                $mail->Username = 'Your Username';                      // SMTP username
-                $mail->Password = 'Your SMTP Password';                 // SMTP password
-                $mail->SMTPSecure = 'tls';                              // Enable TLS encryption, `ssl` also accepted
-                $mail->Port = 2525;                                      // TCP port to connect to
-
-                $mail->setFrom('office@example.com', 'Your Company Name');                  // From email address
-                $mail->addAddress('name@example.com', 'Recipient Name');                    // Add a recipient
-                $mail->addAddress('secondary@example.com', 'Secondary Recipient Name');     // Add another (optional) recipient
-                $mail->addReplyTo($email, $name);                                           // Add a reply-to email address
-                $mail->isHTML(true);                                                        // Set email format to HTML
-
-                // Setting up mail
+                $mail->isSMTP(); 
+                $mail->SMTPDebug = 0; // 0 = off (for production use) - 1 = client messages - 2 = client and server messages
+                $mail->Host = "mx1.hostinger.com.ar"; // use $mail->Host = gethostbyname('smtp.gmail.com'); // if your network does not support SMTP over IPv6
+                $mail->Port = 587; // TLS only
+                $mail->SMTPSecure = 'tls'; // ssl is depracated
+                $mail->SMTPAuth = true;
+                $mail->Username = "web@armatupedal.com";
+                $mail->Password = "atpclave1";
+                $mail->setFrom("web@armatupedal.com", "[ATP-WEB]");
+                $mail->addAddress("laureanoblonsky@gmail.com", "Laureano");
                 $mail->Subject = $subject;
-                $mail->Body    = $message;
-                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-                // Send mail and get response
+                $mail->msgHTML($body); //$mail->msgHTML(file_get_contents('contents.html'), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded,
+                $mail->AltBody = 'HTML messaging not supported';
+                // $mail->addAttachment('images/phpmailer_mini.png'); //Attach an image file
+                
                 if(! $mail->send()) {
                     $status = array(
                         'status' => 'error',
-                        'notify_title' => '',
-                        'notify_message' => 'The message could not be sent! Please, try again.',
+                        'notify_title' => 'Error!',
+                        'notify_message' => 'El mensaje no se pudo enviar! Por favor, volvé a intentarlo.',
                         'notify_type' => 'danger'
                     );
                 } else {
                     $status = array(
                         'status' => 'success',
-                        'notify_title' => '',
-                        'notify_message' => 'Your message was sent successfully!',
+                        'notify_title' => 'Enviado!',
+                        'notify_message' => 'Mensaje enviado!',
                         'notify_type' => 'success'
                     );
                 }
-            else:
-                $status = array(
-                    'status' => 'error',
-                    'notify_title' => '',
-                    'notify_message' => 'There are some errors in your form! Please verify and try again.',
-                    'notify_type' => 'danger'
-                );
-            endif;
-        endif;
-    endif;
-else:
-    $status = array(
-        'status' => 'recaptcha',
-        'notify_title' => '',
-        'notify_message' => 'The recaptcha field is required.',
-        'notify_type' => 'danger'
-    );
-endif;
+
+}catch (Exception $e){
+    $error=1;
+    error_log("error: ".$e);
+    throw $e;
+} finally {  
+  if($error==1){
+    header('HTTP/1.1 500 Internal Server Error'); exit("Hubo un inconveniente al intentar suscribirte. Lo estamos arreglando! Intentá mas tarde por favor.");
+  }
+}
+    
+    
+    
+    
+}
+
+
+
+
+
+
 
 echo json_encode($status);
 

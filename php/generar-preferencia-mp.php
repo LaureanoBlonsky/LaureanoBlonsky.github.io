@@ -1,5 +1,6 @@
 <?php
 require_once ('lib/mercadopago.php');
+require_once ('productos.php');
 
 if(!isset($_SESSION)){session_start();}
 
@@ -12,20 +13,12 @@ $precioProducto=null;
 $tituloProducto=null;
 $descProducto=null;
 $dimensions=null;
-switch ($producto) {
-    case "cs1-kit":
-				$precioProducto=10.10;
-        $tituloProducto="Kit CS1 Compressor";
-        $descProducto="El kit se re zarpa posta";
-        $dimensions="30x30x30,500";
-        break;
-    case "cs1-pedal":
-        //completar
-        break;
-    case "ff-kit":
-        //completar
-        break;
-}
+$prod = getProducto($producto);
+$precioProducto= $prod->precio;
+//$precioProducto= 10;
+$tituloProducto=$prod->nombre;
+$descProducto=$prod->descripcion;
+$dimensions=$prod->dimension;
 
 
 
@@ -57,7 +50,7 @@ $preference_data = array(
 		)
 	),
 	"back_urls" => array(
-		"success" => "https://www.success.com",
+		"success" => "https://armatupedal.com/checkout/checkout-listo.html",
 		"failure" => "http://www.failure.com",
 		"pending" => "http://www.pending.com"
 	),

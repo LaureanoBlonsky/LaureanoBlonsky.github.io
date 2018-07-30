@@ -3,7 +3,6 @@
 //include 'funciones.php';
 require_once 'db.php';
 
-
 if(!isset($_SESSION)){session_start();}
 
 $sessionId=session_id();
@@ -16,12 +15,13 @@ $idOrigenSus = $_POST['pidOrigenSus'];
 $error=0;
 try {
     $stmt = DB::run("INSERT INTO suscripcion (mail, campania, fechaAgregado) VALUES (?,?,now())",
-    [$mail, "suscripcion idOrigenSus-".idOrigenSus]);
+    [$mail, "suscripcion idOrigenSus-".$idOrigenSus]);
         
   //$_SESSION['idVenta'] = $idVenta;
   
 }catch (Exception $e){
     $error=1;
+    error_log("error: ".$e);
     throw $e;
 } finally {  
   if($error==1){

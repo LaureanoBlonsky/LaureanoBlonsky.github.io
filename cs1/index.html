@@ -60,7 +60,26 @@
 
 </head>
 <body>
+<div class="modal" id="informarErrorSusc" tabindex="-1" role="dialog" style="top: 10%;">
+    <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header py-4">
+             <h5 class="modal-title"> No te pudimos Suscribir!</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">×</span>
+             </button>
+         </div>
+         <div class="modal-body">
+             <p class="mb-0">Estamos trabajando para resolver un problema en el sistema.</p>
+             <br><p class="mb-0">Cualquier cosa no dudes en comunicarte con nosotros.</p>
+         </div>
+         <div class="modal-footer">
 
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+         </div>
+     </div>
+    </div>
+</div>
 
 <!-- MAIN WRAPPER -->
 <div class="body-wrap">
@@ -147,36 +166,15 @@
                 <div class="st-content-inner">
 
                     <!-- Header -->
-                    <div class="header">
-    <!-- Top Bar -->
-
-    <!-- Global Search -->
-    <section id="sctGlobalSearch" class="global-search global-search-overlay">
-    <div class="container">
-        <div class="global-search-backdrop mask-dark--style-2"></div>
-
-        <!-- Search form -->
-        <form class="form-horizontal form-global-search z-depth-2-top" role="form">
-            <div class="px-4">
-                <div class="row">
-                    <div class="col-12">
-                        <input type="text" class="search-input" placeholder="Type and hit enter ...">
-                    </div>
-                </div>
-            </div>
-            <a href="#" class="close-search" data-toggle="global-search" title="Close search bar"></a>
-        </form>
-    </div>
-</section>
+<div class="header fixed-top">
+   
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar--bold  navbar-inverse bg-dark navbar--style-1 navbar--shadow" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar--bold  navbar-inverse bg-dark navbar--style-1 navbar--shadow  " id="navbar">
         <div class="container navbar-container" >
             <!-- Brand/Logo -->
-                        <a class="navbar-brand" href="../index.html">
-                <!--<img src="../assets/images/logo/logo-letras-unalinea-blanco-chico-2.png" alt="Boomerang">-->
-                <!--<img src="../assets/images/logo/logo-atp-blanco-chico.png" alt="Boomerang">-->
-                <img id="logo" src="../assets/images/logo/logo-completo-blanco-mediano.png" alt="Boomerang">
+                        <a class="navbar-brand" href="../">
+                <img id="logo" src="../assets/images/logo/logo-completo-blanco-mediano.png" alt="ArmaTuPedal">
             </a>
 
             <div class="d-inline-block">
@@ -189,43 +187,57 @@
             </div>
 
             <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbar_main">
-    <!-- Navbar search - For small resolutions -->
-   <!-- <div class="navbar-search-widget b-xs-bottom py-3 d-lg-none d-xl-none">
-        <form class="" role="form">
-            <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                <button class="btn btn-base-3" type="button">Go!</button>
-                </span>
-            </div>
-        </form>
-    </div>-->
+
 
     <!-- Navbar links -->
     <ul class="navbar-nav" data-hover="dropdown">
         <li class="nav-item dropdown megamenu c-white">
-            <a class="nav-link c-white" href="../index.html" >
+            <a class="nav-link c-white" href="../" >
                 Inicio
             </a>
 
 
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link c-white" href="../index.html#efectos" >
+        <li class="dropdown">
+            <a href="../#efectos" class=""    data-toggle="dropdown" >
+            <a href="../#efectos" class="nav-link c-white"   >
                Efectos
             </a>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="../cs1/" class="dropdown-item">
+                        CS1 Compressor
 
+                    </a>
+                </li>
+                <li>
+                    <a href="../ff/" class="dropdown-item">
+                        FF Fuzz
+
+                    </a>
+                </li>
+                <li>
+                    <a href="../bb" class="dropdown-item">
+                        BB Overdrive
+
+                    </a>
+                </li>             
+       
+                
+                
+            </ul>
 
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link c-white" href="../index.html#comoLoArmas" >
+            <a class="nav-link c-white" href="../#comoLoArmas" >
                ¿Como lo armás?
             </a>
 
 
         </li>
         <li class="nav-item dropdown">
-            <a  class="nav-link c-white" href="../index.html#custom" >
+            <a  class="nav-link c-white" href="../#custom" >
                Custom
             </a>
 
@@ -233,14 +245,14 @@
         </li>
 
         <li class="nav-item dropdown megamenu">
-            <a  class="nav-link c-white" href="../index.html#envios" >
+            <a  class="nav-link c-white" href="../#envios" >
                 Envíos
             </a>
 
 
         </li>
         <li class="nav-item">
-            <a href="../hola/index.html" class="nav-link c-white">
+            <a href="../hola/" class="nav-link c-white">
                 
                Contacto
             </a>
@@ -255,11 +267,13 @@
     <a href="https://goo.gl/9BbH7R" class="btn btn-styled btn-sm btn-white text-uppercase ls-2 strong-600 btn-circle">Armá el tuyo</a>
 </div>-->
         </div>
+        
+
     </nav>
 </div>
 
 <!-- Header FIN -->
-                    <section class="slice-xs border-bottom">
+                    <section class="slice-xs border-bottom " style="margin-top: 117px;">
                         <div class="container">
 <!--
                             <div class="section-title section-title--style-1 text-center mt-3">
@@ -314,14 +328,15 @@
                                         </div>
                                         <!--<span class="space-xs-md"></span>-->
 
+                                    
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 order-2 order-md-1">
                                                 <div class=" milestone-counter text-center b-md-right mb-0 ">
                                                 <!--    <div class="milestone-count c-gray-dark strong-600" data-from="0" data-to="5518" data-speed="3000" data-refresh-interval="100"></div>-->
 
                                                     <!--<h4 class="milestone-info heading-6 c-gray-light text-normal">$1640</h4>-->
-                                                    <a href="../checkout/index.html" class="btn btn-styled btn-orange">Kit para armar</a>
-                                                    <h4 class="milestone c-gray-dark strong-600 heading-1 mb-0" ><span class="milestone-info heading-6 c-gray-light text-normal">$ </span><span style="text-decoration: line-through; text-decoration-color: #ff3b30; text-decoration-style: wavy;">910&nbsp;</span> <span class="heading-2 c-red"><span class="milestone-info heading-6 c-red text-normal ">$ </span> 699</span></h4>
+                                                    <a href="../checkout/index.php?prod=ff-kit" class="btn btn-styled btn-orange heading heading-5" style="font-size: 1.025rem !important;">Kit para armar</a>
+                                                    <h4 class="milestone c-gray-dark strong-600 heading-2 mb-0" ><span class="milestone-info heading-6 c-gray-light text-normal">$ </span><span style="text-decoration: line-through; text-decoration-color: #ff3b30; text-decoration-style: wavy;">910&nbsp;</span> <span class=" c-red"><span class="milestone-info heading-6 c-red text-normal ">$ </span> 699</span></h4>
 
 
                                                     <!--<a mp-mode="dftl" href="https://www.mercadopago.com/mla/checkout/pay?pref_id=59321368-0af724ab-0dd4-4d8c-b974-83d40980968c" name="MP-payButton" class='blue-ar-l-sq-arall'>Pagar</a>
@@ -338,9 +353,9 @@
                                                 <div class="milestone-counter text-center mb-0 ">
                                                     <!--<div class="milestone-count c-gray-dark strong-600" data-from="0" data-to="154" data-speed="5000" data-refresh-interval="50"></div>-->
                                                     <!--<button type="button" class="btn btn-styled btn-base-1">Armar Mi Kit</button>-->
-                                                    <a href="../checkout/index.html" class="btn btn-styled btn-orange">Pedal armado</a>
+                                                    <a href="../checkout/index.php?prod=ff-pedal" class="btn btn-styled btn-orange heading heading-5" style="font-size: 1.025rem !important;">Pedal armado</a>
                                                     <!--<h4 class="milestone c-gray-dark strong-600 heading-1" ><span class="milestone-info heading-6 c-gray-light text-normal">$ </span><span style="text-decoration: line-through; text-decoration-color: #ff3b30;">2.199&nbsp;</span> <span class="heading-2 c-red"><span class="milestone-info heading-6 c-red text-normal ">$ </span> 1.999</span></h4>-->
-                                                    <h4 class="milestone c-gray-dark strong-600 heading-1  mb-0" ><span class="milestone-info heading-6 c-gray-light text-normal">$ </span><span style="text-decoration: line-through; text-decoration-color: #ff3b30; text-decoration-style: wavy;">2.250&nbsp;</span> <span class="heading-2 c-red"><span class="milestone-info heading-6 c-red text-normal ">$ </span> 1.999</span></h4>
+                                                    <h4 class="milestone c-gray-dark strong-600 heading-2  mb-0" ><span class="milestone-info heading-6 c-gray-light text-normal">$ </span><span style="text-decoration: line-through; text-decoration-color: #ff3b30; text-decoration-style: wavy;">2.250&nbsp;</span> <span class=" c-red"><span class="milestone-info heading-6 c-red text-normal ">$ </span> 1.999</span></h4>
 
                                                     <!--<h4 class="milestone-info heading-6 c-gray-light text-normal">$930</h4>-->
 
@@ -357,9 +372,11 @@
 
                                         </div>
                                         
-                                            <div class="col-12 text-center mb-4 ">
-                                             <h4 class="milestone c-red strong-600 heading-3" >¡OFERTA LANZAMIENTO!</h4>
+                                                                                     <div class="col-12 text-center mb-3 mt-2 ">
+                                             <h4 class="milestone bg-red strong-600 heading-4" >¡OFERTA LANZAMIENTO!</h4>
                                             </div>
+
+
                                         
                                         <ul id="payMethod" class="pmethod-carrito row text-center" style="margin:0 7.5%;padding-left:0px;">
                                                             <div class="col-6 col-sm-3 pr-0">
@@ -465,7 +482,7 @@
 
 
 <!-- CARACTERISTICAS -->
-<section class="slice sct-color-1" id="customizaciones">
+<section class="slice sct-color-1 pb-5" id="customizaciones">
 
 
 
@@ -490,10 +507,10 @@
 
             </div>
 
-            <div class="col-md-8" style="z-index: 1000">
+            <div class="col-md-8" style="z-index: 800">
                 <div class="py-4">
                     <div class="text-center text-md-left">
-                        <h3 class="heading heading-3 strong-500">Las customizaciones</h3>
+                        <h3 class="heading heading-2 strong-600 c-base-1">Las customizaciones</h3>
 
                         <p class="mt-1">
                             Cualquier otra idea que tengas, no importa si no figura en nuestras listas, la agregamos para vos.
@@ -647,23 +664,7 @@
 
 </section>
 
-<!-- CARACTERISTICAS FIN -->
-
-<section class="slice bg-base-1 mt-5" style="margin-top:0px !important;">
-    <div class="sct-inner container">
-        <div class="cta-wrapper">
-            <div class="container">
-                <div class="text-center">
-                    <h1 class="heading heading-2 text-normal strong-400">
-                        Ya sea que querés el sonido Vintage y Original de los pedales míticos, darle una nueva perspectiva única tuya o cualquier punto medio, <br><strong>acá tenés todas las posibilidades </strong>.
-
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="sct-color-1 slice mb-0" >
+<section class="sct-color-5 slice mb-5" >
     <div class="container">
         <div class="row cols-md-space cols-sm-space cols-xs-space align-items-center">
 
@@ -672,7 +673,7 @@
             <div class="col-lg-6">
                 <div class="block block-image-holder z-depth-3">
                     <div class="block-image">
-                        <img src="../assets/images/home/zocalos.jpg" class="img-fluid img-center">
+                        <img src="../assets/images/home/pasos_1.jpg" class="img-fluid img-center">
             <!--
                         <a href="https://www.youtube.com/watch?v=hdw1uKiTI5c" data-fancybox>
                             <span class="play-video">
@@ -685,15 +686,16 @@
 
             <div class="col-lg-6">
                 <div class="col-wrapper--spaced">
-                    <h3 class="heading heading-2 strong-400">
-                        Mantenelo actualizado
+                    <h3 class="heading heading-2 strong-600 c-base-1">
+                        Como arrancás?
                     </h3>
                     <div class="c-gray-light mt-4">
-                        <!--A lo largo del tiempo tu sonido, equipamiento, oído o incluso tus gustos van a ir cambiando y evolucionando.<br><br> Esto es parte de Armar tu Pedal, y <strong>gracias a la colocación de zócalos en partes estratégicas, vas a poder ir haciéndole ajustes finos a lo largo de todo ese camino</strong>.<br><br> Cada pedal es un viaje de evolución y ajuste en el tiempo.-->
+                                <!--A lo largo del tiempo tu sonido, equipamiento, oído o incluso tus gustos van a ir cambiando y evolucionando.<br><br> Esto es parte de Armar tu Pedal, y <strong>gracias a la colocación de zócalos en partes estratégicas, vas a poder ir haciéndole ajustes finos a lo largo de todo ese camino</strong>.<br><br> Cada pedal es un viaje de evolución y ajuste en el tiempo.
                         Cada pedal es un viaje de evolución y ajuste en el tiempo.
-                        <br><br>
-                        Gracias a la colocación de <strong>zócalos en partes estratégicas</strong>, vas a poder ir haciéndole ajustes finos a lo largo de todo ese camino.<br><br> 
-                        <strong>No importa si no sabes de electrónica. Te indicamos</strong> cuales componentes podes cambiar, como hacerlo y te damos los distintos valores para que los tengas y pruebes cuando quieras.
+                        <br><br>-->
+                        Luego de la compra vas a recibir a tu mail todas las opciones para personalizar tu pedal.<br><br> 
+                        <strong>No necesitás saber de electrónica</strong>. Vamos a estar con vos para asesorarte en cada elección.
+
 
                     </div>
                 </div>
@@ -703,12 +705,11 @@
 </section>
 
 <section class="slice-xs mb-5">
-
     <div class="container">
         <div class="row cols-xs-space cols-sm-space cols-md-space">
             <div class="col-lg-6">
-                <h2 class="heading heading-2 strong-400 mt-5">
-                    Lo armás vos?
+                <h2 class="heading heading-2 strong-600 c-base-1 mt-5">
+                    Lo armás vos? &nbsp;&nbsp;(opcional)
 
                 </h2>
                 <h3 class="heading heading-3 strong-400 c-gray-light mt-3">
@@ -725,17 +726,17 @@
                     <li class="mb-3 animate-on-scroll fadeInUp">
                         <i class="icon fa fa-puzzle-piece"></i>
                         <span>
-                            Todos los componentes <a href="#" class="link link-sm link--style-2 mt-3">
+                            Todos los componentes <!--<a href="#" class="link link-sm link--style-2 mt-3">
                                 <i class="fa fa-long-arrow-right"></i> Ver detalle
-                            </a>
+                            </a>-->
                         </span>
                     </li>
                     <li class="mb-3 animate-on-scroll fadeInUp" data-wow-delay="0.3s">
                         <i class="icon ion-map"></i>
                         <span>
-                            Manual paso a paso, ilustrado <a href="#" class="link link-sm link--style-2 mt-3">
+                            Manual paso a paso, ilustrado <!--<a href="#" class="link link-sm link--style-2 mt-3">
                                 <i class="fa fa-long-arrow-right"></i> Ver ejemplo
-                            </a>
+                            </a>-->
                         </span>
                     </li>
                     <li class="mb-3 animate-on-scroll fadeInUp" data-wow-delay="0.6s">
@@ -760,8 +761,48 @@
         <!--</div>-->
     </div>
 </section>
+                    
+<section class="sct-color-5 slice mb-1 " >
+    <div class="container">
+        <div class="row cols-md-space cols-sm-space cols-xs-space align-items-center">
 
-<section class="slice bg-base-1 mt-5" style="margin-top:0px !important;">
+
+
+            <div class="col-lg-6">
+                <div class="block block-image-holder z-depth-3">
+                    <div class="block-image">
+                        <img src="../assets/images/home/zocalos.jpg" class="img-fluid img-center">
+            <!--
+                        <a href="https://www.youtube.com/watch?v=hdw1uKiTI5c" data-fancybox>
+                            <span class="play-video">
+                                <i class="fa fa-play"></i>
+                            </span>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="col-wrapper--spaced">
+                    <h3 class="heading heading-2 strong-600 c-base-1">
+                        Mantenelo actualizado
+                    </h3>
+                    <div class="c-gray-light mt-4">
+             <!--A lo largo del tiempo tu sonido, equipamiento, oído o incluso tus gustos van a ir cambiando y evolucionando.<br><br> Esto es parte de Armar tu Pedal, y <strong>gracias a la colocación de zócalos en partes estratégicas, vas a poder ir haciéndole ajustes finos a lo largo de todo ese camino</strong>.<br><br> Cada pedal es un viaje de evolución y ajuste en el tiempo.
+                        Cada pedal es un viaje de evolución y ajuste en el tiempo.
+                        <br><br>-->
+                        Gracias a la colocación de <strong>zócalos en partes estratégicas</strong>, vas a poder ir haciéndole ajustes finos a lo largo del tiempo.<br><br> 
+                        <strong>No importa si no sabes de electrónica</strong>. Te indicamos cuales componentes podes cambiar, como hacerlo y te damos los distintos valores para que los tengas y pruebes cuando quieras.
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<section class="slice bg-base-1 mt-5" style="margin-top:0px !important;">
     <div class="sct-inner container">
         <div class="cta-wrapper">
             <div class="container">
@@ -773,7 +814,7 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 
 
 
@@ -783,16 +824,17 @@
                                         <a href="../assets/images/prv/blog/img-3.jpg" data-fancybox="group" data-caption="My caption #2">
                                             <img src="../assets/images/prv/blog/img-3.jpg">
                                         </a>-->
-<section class="slice sct-color-1">
+<section class="slice sct-color-1 pt-5">
     <div class="container">
-        <!--<div class="row  justify-content-center">
+        <div class="row  justify-content-center">
             <div class="col-auto">
-                <h2 class="heading heading-2 strong-400 mb-4">
-                    Galería
-
-                </h2>
+                <h2 class="heading heading-2 strong-500 c-base-1  w-100 text-center mb-5">
+                    Algunos ejemplos de lo que podes lograr con el <span class="strong-600">CS1</span></h2>
+                <!--<div class="c-gray-light mt-4 mb-5">
+                    Estos son algunos ejemplos de combinaciones.
+                </div>-->
             </div>
-        </div>-->
+        </div>
         <div class="row masonry">
             <div class="masonry-item col-sm-6 col-md-4 design">
                 <a href="galeria/gale1-1.jpg" data-fancybox="group" data-caption="CS1 Compressor - 1">
@@ -870,12 +912,12 @@
             </div>
 
             <div class="masonry-item col-sm-6 col-md-4 graphics">
-                <a  data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" data-fancybox="group" data-caption="CS1 Compressor - 6">
+                <a href="galeria/gale6-1.jpg" data-fancybox="group" data-caption="CS1 Compressor - 5">
 
 
                     <div class="block block--style-5 mb-0 border">
                         <div class="block-image">
-                            <img src="../assets/images/thekilt/pedalcostado2_2.jpg">
+                            <img src="galeria/gale6-0.jpg">
                         </div>
                         <div class="block-mask-caption--over d-flex align-items-center">
                             <div class="col text-center">
@@ -980,22 +1022,21 @@ Te vas a divertir haciéndolo, te vas a divertir probándolo y te vas a divertir
                 <div class="px-3 py-3 text-lg-center">
                     <h3 class="heading heading-sm strong-600 text-uppercase ls-1">pago seguro | efectivo</h3>         
                                                                         <div class="payment-container row px-4">
-
-                                                    <div class="col-2 mt-3"> <img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/mercadopago@2x.png" alt="" height="20" class="img-grayscale"></div>
+         <div class="col-2 mt-3"> <img src="../assets/images/icons/cards/mercadopago.png" alt="" height="20" class="img-grayscale"></div>
                                                     <span class="col-10 mt-3 c-gray-light"><i class="fa fa-lock" aria-hidden="true"></i> <strong>&nbsp;&nbsp; efectivo, débito y crédito</strong></span>
-                                                    <div class="col-2 mt-1"> <img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/visa@2x.png" alt="" height="20" class="img-grayscale"> </div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/mastercard@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/amex@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/tarjeta-naranja@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/tarjeta-shopping@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/nativa@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/cencosud@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/cabal@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/argencard@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/diners@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/pagofacil@2x.png" alt="" height="20" class="img-grayscale"></div>
-                                                    <div class="col-2 mt-1"><img src="https://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/rapipago@2x.png" alt="" height="20" class="img-grayscale"></div><!--
-                                                    <img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/todopago@2x.png" alt="" height="20" class="img-grayscale"><img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/ar/banelco@2x.png" alt="" height="20" class="img-grayscale">                                                                            <img src="http://d26lpennugtm8s.cloudfront.net/../assets/common/img/logos/payment/paypal@2x.png" alt="" height="20">
+                                                    <div class="col-2 mt-1"> <img src="../assets/images/icons/cards/visa2.png" alt="" height="20" class="img-grayscale"> </div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/mastercard2.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/amex.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/tarjeta-naranja.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/tarjeta-shopping.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/nativa.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/cencosud.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/cabal.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/argencard.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/diners.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/pagofacil.png" alt="" height="20" class="img-grayscale"></div>
+                                                    <div class="col-2 mt-1"><img src="../assets/images/icons/cards/rapipago.png" alt="" height="20" class="img-grayscale"></div><!--
+                                                    <img src="../assets/images/icons/cards/todopago.png" alt="" height="20" class="img-grayscale"><img src="../assets/images/icons/cards/ar/banelco.png" alt="" height="20" class="img-grayscale">                                                                            <img src="../assets/images/icons/cards/paypal.png" alt="" height="20">
                                                     -->
 
 
@@ -1026,12 +1067,12 @@ Te vas a divertir haciéndolo, te vas a divertir probándolo y te vas a divertir
                     <div class="col">
    
                        <ul class="footer-links">
-                            <li><a href="../index.html" >Inicio</a></li>
-                            <li><a href="../index.html#efectos" >Efectos</a></li>
-                            <li><a href="../index.html#comoLoArmas" >¿Como lo armás?</a></li>
-                            <li><a href="../index.html#custom" >Custom</a></li>
-                            <li><a href="../index.html#envios">Envíos</a></li>
-                            <li><a href="../index.html#pago">Métodos de pago</a></li>
+                            <li><a href="../" >Inicio</a></li>
+                            <li><a href="../#efectos" >Efectos</a></li>
+                            <li><a href="../#comoLoArmas" >¿Como lo armás?</a></li>
+                            <li><a href="../#custom" >Custom</a></li>
+                            <li><a href="../#envios">Envíos</a></li>
+                            <li><a href="../#pago">Métodos de pago</a></li>
                         </ul>
                      </div>
                 </div>
@@ -1044,17 +1085,17 @@ Te vas a divertir haciéndolo, te vas a divertir probándolo y te vas a divertir
 
                         <ul class="footer-links">
                              <li>
-                                 <a href="../cs1/index.html">
+                                 <a href="../cs1/">
                                      CS1 Compressor
                                  </a>
                              </li>
                              <li>
-                                 <a href="../ff/index.html">
+                                 <a href="../ff/">
                                      FF Fuzz
                                  </a>
                              </li>
                              <li>
-                                 <a href="../bb/index.html" >
+                                 <a href="../bb/" >
                                      BB Overdrive
                                  </a>
                              </li>
@@ -1112,19 +1153,26 @@ Te vas a divertir haciéndolo, te vas a divertir probándolo y te vas a divertir
                                 Que cada pedal nuevo te llegue diréctamente a tu mail.
                             </p>
 
-                            <form class="form-default" data-toggle="validator" role="form">
+                              <form id="sus2" class="form-default" data-toggle="validator" role="form" onSubmit="JavaScript:suscribir('sus2',22); return false;">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group has-feedback">
                                             <label class="control-label sr-only">Mail</label>
-                                            <input type="email" class="form-control input-lg" placeholder="Mail" required="">
+                                            <input name="mail" type="email" class="form-control input-lg" placeholder="nombre@mimail.com" required="">
                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <button type="submit" class="btn btn-base-4">
+                                <div name="loader-susc" class="text-center " style=" display:none;">
+                                    <i class="fa fa-gear fa-spin" style="font-size:24px;"></i>
+                                </div>
+                                
+                                <div name="ok-susc" class="text-center " style=" display:none;">
+                                    <i class="fa fa-check-circle" aria-hidden="true" style="font-size:24px;"></i>                                    
+                                </div>
+                                
+                                <button name="susc" type="submit" class="btn btn-base-4">
                                     suscribirme
                                 </button>
                             </form>
@@ -1220,14 +1268,17 @@ $('#slideshow').desoSlide({
         keys: false
     },
 });
+
+
     
 </script>
+    
 
 
 <!-- App JS -->
     
 <script src="../assets/js/boomerang.min.js"></script>
     
-
+<script src="../js/suscripcion.js"></script>
 </body>
 </html>
